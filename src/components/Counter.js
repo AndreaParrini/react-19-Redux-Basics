@@ -8,7 +8,12 @@ const Counter = () => {
   const counter = useSelector(state=>state.counter); 
   //useSelector imposta in automatico un "abbonamento" a questo componente, cosi da riaggiornarlo sempre con l'ultimo valore dello stato ogni volta che cambia
 
-  const toggleCounterHandler = () => {};
+  const show = useSelector(state=>state.showCounter); 
+
+
+  const toggleCounterHandler = () => {
+    dispatch({type: 'TOGGLE'})
+  };
 
   const handlerIncrement=() => {
     dispatch({type: 'INCREMENT'});
@@ -26,7 +31,7 @@ const Counter = () => {
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}>{counter}</div>
+      {show && <div className={classes.value}>{counter}</div>}
       <div>
         <button onClick={handlerIncrement}>Increment</button>
         <button onClick={handlerIncrease}>Increase by 5</button>
