@@ -6,10 +6,10 @@ import classes from './Counter.module.css';
 
 const Counter = () => {
   const dispatch= useDispatch();
-  const counter = useSelector(state=>state.counter); 
+  const counter = useSelector(state=>state.counter.counter); // il primo counter sever per dirgli quale pezzo di stroe vogliamo utilizzare il secondo per accedere al valore
   //useSelector imposta in automatico un "abbonamento" a questo componente, cosi da riaggiornarlo sempre con l'ultimo valore dello stato ogni volta che cambia
 
-  const show = useSelector(state=>state.showCounter); 
+  const show = useSelector(state=>state.counter.showCounter); 
 
 
   const toggleCounterHandler = () => {
